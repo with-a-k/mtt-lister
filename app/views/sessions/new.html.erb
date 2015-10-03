@@ -1,0 +1,11 @@
+<div class="row">
+	<div class="small-12 columns">
+		<%= form_tag(action: "create", method: "post") do %>
+			<%= label_tag(:name, "Username") %>
+			<%= text_field_tag(:name) %>
+			<%= label_tag(:password, "Password") %>
+			<%= password_field_tag(:password) %>
+			<%= submit_tag("Log In") %>
+		<% end %>
+	</div>
+</div>

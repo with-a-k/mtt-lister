@@ -12,4 +12,16 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+
+.flash-critical {
+	background-color: #FF8888; 
+	color: #990000;
+}
+
+.flash-success {
+	background-color: #88FF88;
+	color: #009900;
+}

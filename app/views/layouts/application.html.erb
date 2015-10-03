@@ -1,14 +1,49 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>MttLister</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title>MTT Lister</title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+  	<div class="row">
+      <div class="large-12 columns title-background large-collapse">
+        <h1 class="text-center main-title">MTT Lister</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns title-background large-collapse">
+        <% flash.keys.each do |key| %>
+        	<p class="flash-<%= key.to_s %>"><%= flash[key] %></p>
+        <% end %>
+      </div>
+    </div>
+
+  	<ul class="side-nav">
+  		<% if current_user %>
+  			<li class="side-info-item">
+  				<p>Logged in as <%= current_user.name %>
+  			</li>
+  		<% else %>
+  			<li class="side-nav-item">
+  				<%= link_to "Log In", login_path %>
+  			</li>
+  			<li class="side-nav-item">
+  				<%= link_to "Register as a New User", register_path %>
+  			</li>
+  		<% end %>
+  	</ul>
+
+    <%= yield %>
+
+  </body>
 </html>
