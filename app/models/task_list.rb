@@ -13,6 +13,6 @@ class TaskList < ActiveRecord::Base
   private
 
   def set_defaults
-    self.archived = false
+    self.archived = false unless self.archived
   end
 end
