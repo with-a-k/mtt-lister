@@ -8,10 +8,16 @@ class UsersController < ApplicationController
       flash['critical'] = "Your passwords need to match!"
       redirect_to :back
     else
-      new_user = User.create(name: params[:user][:name], password: params[:user][:password])
+      new_user = User.create(user_params)
       session[:user_id] = new_user.id
       flash['success'] = "Registration was successful."
       redirect_to user_task_lists_path(new_user)
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :password)
   end
 end
