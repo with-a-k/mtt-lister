@@ -64,4 +64,22 @@ class TaskListFeaturesTest < ActionDispatch::IntegrationTest
     refute page.has_content?('I Am Not Archived')
     assert page.has_content?("I Am Archived")
   end
+
+  test "change the name" do
+    user = User.create(name: "Ein", password: "fivesprite")
+    task_list = TaskList.create(title: 'You Should Change Me', user_id: user.id)
+    visit root_path
+    click_on "Log In"
+    fill_in 'Username', with: user.name
+    fill_in 'Password', with: user.password
+    click_on "Log In"
+    click_on 'You Should Change Me'
+    click_on 'Rename List'
+    assert_equal edit_user_task_list_path(user, task_list), current_path
+    fill_in 'Title', with: "A Different Title"
+    click_on "Edit"
+    assert page.has_content?("A Different Title")
+    task_check = TaskList.find_by(id: task_list.id)
+    assert_equal "A Different Title", task_check.title
+  end
 end
