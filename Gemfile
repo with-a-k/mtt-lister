@@ -47,8 +47,10 @@ end
 group :test do
   gem 'simplecov'
   gem 'capybara'
+  gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 group :production do

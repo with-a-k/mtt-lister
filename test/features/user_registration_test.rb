@@ -3,6 +3,7 @@ require 'test_helper'
 class UserRegistrationTest < ActionDispatch::IntegrationTest
   def setup
     Capybara.app = MTTLister::Application
+    Capybara.use_default_driver
     DatabaseCleaner.clean
     reset_session!
   end

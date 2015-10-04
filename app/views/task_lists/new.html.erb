@@ -3,6 +3,7 @@
 		<%= form_for(@task_list, url:{action: "create"}) do |f| %>
 			<%= f.label(:title, "Title") %>
 			<%= f.text_field(:title) %>
+			<% f.hidden_field :user_id, value: current_user.id %>
 			<%= submit_tag("Create") %>
 		<% end %>
 	</div>

@@ -1,5 +1,22 @@
 <div class="row">
 	<div class="small-12 columns">
 		<h2><%= @task_list.title %></h2>
+		<% if @task_list.archived %>
+			<h4>This list has been archived.</h4>
+			<ul class="task-list-options">
+				<li>
+					<%= link_to 'Unarchive List', {controller: "task_lists", action: "update", user: current_user, :task_list => {archived: false}}, method: :patch %>
+				</li>
+				<li>
+					<%= link_to 'Delete List', {controller: "task_lists", action: "destroy", user: current_user}, method: :delete %>
+				</li>
+			</ul>
+		<% else %>
+			<ul class="task-list-options">
+				<li>
+					<%= link_to 'Archive List', {controller: "task_lists", action: "update", user: current_user, :task_list => {archived: true}}, method: :patch %>
+				</li>
+			</ul>
+		<% end %>
 	</div>
 </div>

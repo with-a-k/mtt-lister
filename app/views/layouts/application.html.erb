@@ -34,6 +34,12 @@
   				<p>Logged in as <%= current_user.name %>
   			</li>
   			<li class="side-nav-item">
+  				<%= link_to "Your Task Lists", user_task_lists_path(current_user) %>
+  			</li>
+  			<li class="side-nav-item">
+  				<%= link_to "Archived Task Lists", user_archived_lists_path(current_user) %>
+  			</li>
+  			<li class="side-nav-item">
   				<%= link_to "New Task List", new_user_task_list_path(current_user) %>
   			</li>
   			<li class="side-nav-item">
