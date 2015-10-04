@@ -1,8 +1,10 @@
 class TaskListsController < ApplicationController
   def index
+    @task_lists = TaskList.belonging_to_user(current_user).unarchived
   end
 
   def show
+    @task_list = TaskList.find_by(id: params[:id])
   end
 
   def new
@@ -14,10 +16,18 @@ class TaskListsController < ApplicationController
   end
 
   def archived
-
+    @task_lists = TaskList.belonging_to_user(current_user).archived
   end
 
   def edit
+    @task_list = TaskList.find_by(id: params[:id])
+  end
+
+  def update
+
+  end
+
+  def destroy
 
   end
 end

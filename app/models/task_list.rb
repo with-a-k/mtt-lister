@@ -6,6 +6,9 @@ class TaskList < ActiveRecord::Base
 
   after_initialize :set_defaults
 
+  scope :belonging_to_user, ->(user) { where('user_id = ?', user.id) }
+  scope :unarchived, -> { where(archived: false) }
+
   def archive!
     self.archived = true
   end

@@ -3,6 +3,8 @@ require 'test_helper'
 class UserRegistrationTest < ActionDispatch::IntegrationTest
   def setup
     Capybara.app = MTTLister::Application
+    DatabaseCleaner.clean
+    reset_session!
   end
 
   test "successful registration" do

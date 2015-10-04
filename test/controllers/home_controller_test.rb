@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TaskListsControllerTest < ActionController::TestCase
+class HomeControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

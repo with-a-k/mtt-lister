@@ -33,10 +33,18 @@
   			<li class="side-info-item">
   				<p>Logged in as <%= current_user.name %>
   			</li>
-  		<% else %>
   			<li class="side-nav-item">
-  				<%= link_to "Log In", login_path %>
+  				<%= link_to "New Task List", new_user_task_list_path(current_user) %>
   			</li>
+  			<li class="side-nav-item">
+  				<%= link_to "Log Out", logout_path, method: 'delete' %>
+  			</li>
+  		<% else %>
+  			<% unless request.env['PATH_INFO'] == '/login' %>
+	  			<li class="side-nav-item">
+  					<%= link_to "Log In", login_path %>
+  				</li>
+  			<% end %>
   			<li class="side-nav-item">
   				<%= link_to "Register as a New User", register_path %>
   			</li>

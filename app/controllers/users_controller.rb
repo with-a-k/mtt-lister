@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       new_user = User.create(name: params[:user][:name], password: params[:user][:password])
       session[:user_id] = new_user.id
       flash['success'] = "Registration was successful."
-      redirect_to root_path
+      redirect_to user_task_lists_path(new_user)
     end
   end
 end
