@@ -5,6 +5,10 @@ class TaskListsController < ApplicationController
     @task_lists = TaskList.belonging_to_user(params[:user_id]).unarchived
   end
 
+  def archived
+    @task_lists = TaskList.belonging_to_user(params[:user_id]).archived
+  end
+
   def show
     @task_list = TaskList.find_by(id: params[:id])
   end
@@ -24,20 +28,26 @@ class TaskListsController < ApplicationController
     end
   end
 
-  def archived
-    @task_lists = TaskList.belonging_to_user(params[:user_id]).archived
-  end
-
   def edit
     @task_list = TaskList.find_by(id: params[:id])
   end
 
   def update
-
+    @task_list = TaskList.find_by(id: params[:id])
+    @task_list.update!(task_list_params)
+    redirect_to user_task_list_path(current_user, @task_list)
   end
 
   def destroy
-
+    @task_list = TaskList.find_by(id: params[:id])
+    if @task_list.archived == true
+      @task_list.destroy
+      flash['success'] = 'Deletion successful.'
+      redirect_to user_task_lists_path(current_user)
+    else
+      flash['critical'] = 'List is not archived.'
+      redirect_to user_task_list_path(current_user, @task_list)
+    end
   end
 
   private
@@ -50,6 +60,6 @@ class TaskListsController < ApplicationController
   end
 
   def task_list_params
-    params.require(:task_list).permit(:title)
+    params.require(:task_list).permit(:title, :archived, :user_id)
   end
 end
