@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="small-12 columns">
+		<%= form_for @task, url: user_task_list_task_path(current_user, @task.task_list, @task) do |f| %>
+			<%= f.label(:title, "Title") %>
+			<%= f.text_field(:title) %>
+			<%= f.label(:description, "Description") %>
+			<%= f.text_area(:description) %>
+			<%= f.label(:due_date, "Due Date") %>
+			<%= f.date_select(:due_date) %>
+			<%= submit_tag("Edit") %>
+		<% end %>
+	</div>
+</div>

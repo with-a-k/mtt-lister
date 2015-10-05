@@ -28,7 +28,7 @@
 			<% @task_list.tasks.each do |task| %>
 				<li class="task">
 					<h4><%= task.title %></h4>
-					<p><%= task.description %></p>
+					<p><%= task.description %> <%= link_to "Edit Task", edit_user_task_list_task_path(current_user, task.task_list, task) %></p>
 					<p>Due <%= task.due_date.to_s %></p>
 				</li>
 			<% end %>
