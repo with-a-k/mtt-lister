@@ -24,6 +24,20 @@ class TasksController < ApplicationController
     redirect_to user_task_list_path(current_user, @task.task_list)
   end
 
+  def complete
+    @task = Task.find_by(id: params[:id])
+    @task.complete!
+    @task.save!
+    redirect_to user_task_list_path(current_user, @task.task_list)
+  end
+
+  def uncomplete
+    @task = Task.find_by(id: params[:id])
+    @task.incomplete!
+    @task.save!
+    redirect_to user_task_list_path(current_user, @task.task_list)
+  end
+
   private
 
   def task_params

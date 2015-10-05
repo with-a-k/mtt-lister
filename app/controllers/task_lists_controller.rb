@@ -9,6 +9,10 @@ class TaskListsController < ApplicationController
     @task_lists = TaskList.belonging_to_user(params[:user_id]).archived
   end
 
+  def completed
+    @task_list = TaskList.find_by(id: params[:id])
+  end
+
   def show
     @task_list = TaskList.find_by(id: params[:id])
   end

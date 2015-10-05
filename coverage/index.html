@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-10-04T19:43:55-06:00">2015-10-04T19:43:55-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-10-04T20:28:06-06:00">2015-10-04T20:28:06-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">96.92%</span></span>
+    (<span class="covered_percent"><span class="green">96.06%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.99
+         1.97
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>38</b> files in total.
-    <b>422</b> relevant lines. 
-    <span class="green"><b>409</b> lines covered</span> and
-    <span class="red"><b>13</b> lines missed </span>
+    <b>431</b> relevant lines. 
+    <span class="green"><b>414</b> lines covered</span> and
+    <span class="red"><b>17</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -57,7 +57,7 @@
         <td>5</td>
         <td>5</td>
         <td>0</td>
-        <td>42.4</td>
+        <td>43.0</td>
       </tr>
       
       <tr>
@@ -92,12 +92,12 @@
       
       <tr>
         <td class="strong"><a href="#b558d0fb6fb6a3a54fd12286d74d51ee17bdad42" class="src_link" title="app/controllers/tasks_controller.rb">app/controllers/tasks_controller.rb</a></td>
-        <td class="yellow strong">89.47 %</td>
-        <td>32</td>
-        <td>19</td>
-        <td>17</td>
-        <td>2</td>
-        <td>0.9</td>
+        <td class="red strong">75.0 %</td>
+        <td>39</td>
+        <td>24</td>
+        <td>18</td>
+        <td>6</td>
+        <td>0.8</td>
       </tr>
       
       <tr>
@@ -183,11 +183,11 @@
       <tr>
         <td class="strong"><a href="#9eb07cc13a706fa9e82c1b22a6ae8850c60c8138" class="src_link" title="app/models/task.rb">app/models/task.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>29</td>
-        <td>16</td>
-        <td>16</td>
+        <td>32</td>
+        <td>18</td>
+        <td>18</td>
         <td>0</td>
-        <td>4.4</td>
+        <td>4.0</td>
       </tr>
       
       <tr>
@@ -313,9 +313,9 @@
       <tr>
         <td class="strong"><a href="#952f86a1d8f54db5e8dda37893cb90e66cb84d59" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>15</td>
-        <td>10</td>
-        <td>10</td>
+        <td>17</td>
+        <td>12</td>
+        <td>12</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -363,7 +363,7 @@
       <tr>
         <td class="strong"><a href="#727532ed79964b3ea7eafba2c722407f1563fb80" class="src_link" title="test/features/task_features_test.rb">test/features/task_features_test.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>45</td>
+        <td>61</td>
         <td>38</td>
         <td>38</td>
         <td>0</td>
@@ -508,8 +508,8 @@
           <code class="ruby">  def current_user</code>
         </li>
       
-        <li class="covered" data-hits="208" data-linenumber="9">
-          <span class="hits">208</span>
+        <li class="covered" data-hits="211" data-linenumber="9">
+          <span class="hits">211</span>
           
           <code class="ruby">    @current_user ||= User.find(session[:user_id]) if session[:user_id]</code>
         </li>
@@ -1133,11 +1133,11 @@
         <div class="source_table" id="b558d0fb6fb6a3a54fd12286d74d51ee17bdad42">
   <div class="header">
     <h3>app/controllers/tasks_controller.rb</h3>
-    <h4><span class="yellow">89.47 %</span> covered</h4>
+    <h4><span class="red">75.0 %</span> covered</h4>
     <div>
-      <b>19</b> relevant lines. 
-      <span class="green"><b>17</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
+      <b>24</b> relevant lines. 
+      <span class="green"><b>18</b> lines covered</span> and
+      <span class="red"><b>6</b> lines missed.</span>
     </div>
   </div>
   
@@ -1303,34 +1303,76 @@
         <li class="covered" data-hits="1" data-linenumber="27">
           <span class="hits">1</span>
           
-          <code class="ruby">  private</code>
+          <code class="ruby">  def complete</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="missed" data-hits="0" data-linenumber="28">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    @task = Task.find_by(id: params[:id])</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="29">
           
-          <code class="ruby">  def task_params</code>
+          
+          <code class="ruby">    @task.complete!</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="30">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="30">
           
-          <code class="ruby">    params.require(:task).permit(:title, :due_date, :description, :task_list_id)</code>
+          
+          <code class="ruby">    @task.save!</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="31">
+        <li class="missed" data-hits="0" data-linenumber="31">
+          
+          
+          <code class="ruby">    redirect_to user_task_list_path(current_user, @task.task_list)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def task_params</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="37">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    params.require(:task).permit(:title, :due_date, :description, :task_list_id)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby">end</code>
@@ -1711,8 +1753,8 @@
     <h3>app/models/task.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>16</b> relevant lines. 
-      <span class="green"><b>16</b> lines covered</span> and
+      <b>18</b> relevant lines. 
+      <span class="green"><b>18</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1777,118 +1819,136 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">  def complete!</code>
+          <code class="ruby">  scope :incomplete, -&gt; { where(status: &#39;incomplete&#39;) }</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">    self.update!(status: &quot;complete&quot;)</code>
+          <code class="ruby">  scope :complete, -&gt; { where(status: &#39;complete&#39;) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  def complete!</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">  def incomplete!</code>
+          <code class="ruby">    self.update!(status: &quot;complete&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="15">
           
-          <code class="ruby">    self.update!(status: &quot;incomplete&quot;)</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  def incomplete!</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="18">
           <span class="hits">1</span>
           
-          <code class="ruby">  def user</code>
+          <code class="ruby">    self.update!(status: &quot;incomplete&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="19">
           
-          <code class="ruby">    self.task_list.user</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  def user</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
-          <code class="ruby">  private</code>
+          <code class="ruby">    self.task_list.user</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="24">
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
           <span class="hits">1</span>
           
           <code class="ruby">  def set_defaults</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="25">
+        <li class="covered" data-hits="19" data-linenumber="28">
           <span class="hits">19</span>
           
           <code class="ruby">    self.status      = &quot;incomplete&quot; unless self.status</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="26">
+        <li class="covered" data-hits="19" data-linenumber="29">
           <span class="hits">19</span>
           
           <code class="ruby">    self.due_date    = Date.today unless self.due_date</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="27">
+        <li class="covered" data-hits="19" data-linenumber="30">
           <span class="hits">19</span>
           
           <code class="ruby">    self.description = &quot;&quot; unless self.description</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="never" data-hits="" data-linenumber="31">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
           <code class="ruby">end</code>
@@ -2959,8 +3019,8 @@
     <h3>config/routes.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>10</b> relevant lines. 
-      <span class="green"><b>10</b> lines covered</span> and
+      <b>12</b> relevant lines. 
+      <span class="green"><b>12</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -3031,28 +3091,40 @@
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">      resources :tasks, only: [:new, :create, :destroy, :edit, :update]</code>
+          <code class="ruby">      get &#39;completed&#39;, to: &#39;tasks#completed&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">      patch &quot;tasks/:id/complete&quot;, to: &#39;tasks#complete&#39;, as: &#39;complete_task&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">    get &#39;archived_lists&#39;, to: &#39;task_lists#archived&#39;</code>
+          <code class="ruby">      resources :tasks, only: [:new, :create, :destroy, :edit, :update]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    get &#39;archived_lists&#39;, to: &#39;task_lists#archived&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">end</code>
@@ -3563,6 +3635,102 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">  # Can&#39;t run, relies on JS</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">  # test &quot;complete a task&quot; do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby">  #   user = User.create(name: &quot;Ein&quot;, password: &quot;fivesprite&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
+          
+          
+          <code class="ruby">  #   task_list = TaskList.create(title: &quot;Container&quot;, user_id: user.id)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby">  #   task = Task.create(title: &quot;Side Wall&quot;, task_list_id: task_list.id)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
+          
+          
+          <code class="ruby">  #   visit root_path</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby">  #   click_on &quot;Log In&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby">  #   fill_in &#39;Username&#39;, with: user.name</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby">  #   fill_in &#39;Password&#39;, with: user.password</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby">  #   click_on &quot;Log In&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">  #   click_on &quot;Container&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">  #   click_on &quot;Finish Task&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby">  #   assert_equal &quot;complete&quot;, Task.find_by(id: task.id).status</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby">  # end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
           
           
           <code class="ruby">end</code>
