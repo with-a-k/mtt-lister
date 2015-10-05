@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   get 'register', to: 'users#new'
   resources :users, only: [:create] do
-    resources :task_lists
+    resources :task_lists do
+      resources :tasks, only: [:new, :create, :destroy, :edit, :update]
+    end
     get 'archived_lists', to: 'task_lists#archived'
   end
 end
