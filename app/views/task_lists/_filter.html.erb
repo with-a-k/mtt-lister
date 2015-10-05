@@ -1,0 +1,10 @@
+<div class="row">
+	<div class="filter small-12 columns">
+  	<label>Filter By Status</label>
+  	<%= select :task, :filter_status, ['incomplete', 'complete', 'all'], {include_blank: false, default: 'incomplete'} %>
+  	<label>Filter By Due Date</label>
+  	<%= select :task, :filter_date, @dates, {include_blank: true} %>
+  	<label>Filter By Name</label>
+  	<%= text_field :task, :filter_name %>
+	</div>
+</div>

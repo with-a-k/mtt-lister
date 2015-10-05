@@ -12,7 +12,6 @@ Rails.application.routes.draw do
       patch "tasks/:id/uncomplete", to: 'tasks#uncomplete', as: 'uncomplete_task'
       resources :tasks, only: [:new, :create, :destroy, :edit, :update]
     end
-    get 'task_lists/:id/completed', to: 'task_lists#completed', as: 'task_list_completed'
     get 'archived_lists', to: 'task_lists#archived'
   end
 
