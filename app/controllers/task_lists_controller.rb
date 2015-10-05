@@ -18,7 +18,7 @@ class TaskListsController < ApplicationController
   end
 
   def create
-    @task_list = TaskList.create(task_list_params)
+    @task_list = TaskList.new(task_list_params)
     if @task_list.save
       flash['success'] = 'Creation successful.'
       redirect_to user_task_list_path(current_user, @task_list)

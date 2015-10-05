@@ -8,11 +8,11 @@ class Task < ActiveRecord::Base
   after_initialize :set_defaults
 
   def complete!
-    self.status = "complete"
+    self.update!(status: "complete")
   end
 
   def incomplete!
-    self.status = "incomplete"
+    self.update!(status: "incomplete")
   end
 
   def user
