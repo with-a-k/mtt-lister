@@ -25,12 +25,16 @@
 			</ul>
 		<% end %>
 		<ul class="task-list-tasks">
-			<% @task_list.tasks.where(status: 'incomplete').each do |task| %>
+			<% @task_list.tasks.each do |task| %>
 				<li class="task">
 					<h4><%= task.title %></h4>
 					<p><%= task.description %> <%= link_to "Edit Task", edit_user_task_list_task_path(current_user, task.task_list, task) %></p>
 					<p>Due <%= task.due_date.to_s %>
-						<%= link_to "Finish Task", user_task_list_complete_task_path(current_user, task.task_list, task), method: :patch %>
+						<% if task.status == "incomplete" %>
+							<%= link_to "Finish Task", user_task_list_complete_task_path(current_user, task.task_list, task), method: :patch %>
+						<% else %>
+							<%= link_to "Mark Incomplete", user_task_list_uncomplete_task_path(current_user, task.task_list, task), method: :patch %>
+						<% end %>
 					</p>
 				</li>
 			<% end %>

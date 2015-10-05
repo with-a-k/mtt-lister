@@ -7,6 +7,9 @@ class Task < ActiveRecord::Base
 
   after_initialize :set_defaults
 
+  scope :incomplete, -> { where(status: 'incomplete') }
+  scope :complete, -> { where(status: 'complete') }
+
   def complete!
     self.update!(status: "complete")
   end
