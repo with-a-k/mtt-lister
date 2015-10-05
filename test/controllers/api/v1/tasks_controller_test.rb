@@ -24,6 +24,17 @@ class Api::V1::TasksControllerTest < ActionController::TestCase
     assert_response :forbidden
   end
 
+  test "wrong user" do
+    subuser = User.create(name: 'Ky Kiske', password: 'ridethelightning')
+    sublist = TaskList.create(title: 'Upholding Justice', user_id: subuser.id)
+    subtask = Task.create(title: 'Find Sol', task_list_id: sublist.id)
+    get :index, format: :json, user_id: subuser.id, token: @token
+    assert_response :forbidden
+
+    get :show, format: :json, user_id: subuser.id, id: subtask.id, token: @token
+    assert_response :forbidden
+  end
+
   test "#index" do
     get :index, format: :json, user_id: @user.id, token: @token
     assert_response :success

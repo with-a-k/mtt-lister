@@ -23,6 +23,16 @@ class Api::V1::TaskListsControllerTest < ActionController::TestCase
     assert_response :forbidden
   end
 
+  test "wrong user" do
+    subuser = User.create(name: 'Ragna the Bloodedge', password: 'azuredrive')
+    sublist = TaskList.create(title: 'NOL Branches to Destroy', user_id: subuser.id)
+    get :index, format: :json, user_id: subuser.id, token: @token
+    assert_response :forbidden
+
+    get :show, format: :json, user_id: subuser.id, token: @token, id: sublist.id
+    assert_response :forbidden
+  end
+
   test "#index" do
     get :index, format: :json, user_id: @user.id, token: @token
     assert_response :success
