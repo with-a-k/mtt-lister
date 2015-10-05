@@ -15,4 +15,15 @@ Rails.application.routes.draw do
     get 'task_lists/:id/completed', to: 'task_lists#completed', as: 'task_list_completed'
     get 'archived_lists', to: 'task_lists#archived'
   end
+
+  get 'api_token', to: 'users#token'
+
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: [:show] do
+        resources :task_lists, only: [:index, :show]
+        resources :tasks, only: [:index, :show]
+      end
+    end
+  end
 end

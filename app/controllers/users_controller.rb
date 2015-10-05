@@ -15,6 +15,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def token
+    @user = current_user
+  end
+
   private
 
   def user_params

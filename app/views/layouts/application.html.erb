@@ -39,6 +39,9 @@
   			<li class="side-nav-item">
   				<%= link_to "Archived Task Lists", user_archived_lists_path(current_user) %>
   			</li>
+        <li class="side-nav-item">
+          <%= link_to "Get Your API Key", api_token_path %>
+        </li>
   			<li class="side-nav-item">
   				<%= link_to "New Task List", new_user_task_list_path(current_user) %>
   			</li>
